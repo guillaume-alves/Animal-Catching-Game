@@ -14,7 +14,7 @@ public class Animal {
 	public String toString(){
 	    return "NAME : " + this.name + " - COLOR : " + this.color;
 	
-	}
+	}//TEST
 	
 	
 }
