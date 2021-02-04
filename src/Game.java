@@ -10,8 +10,8 @@ public class Game {
 
 	public void createTab() { // create and fill a multidimensional tab with data - 100% working, testei com Visual Code Studio :)
 
-		int nb5i = 2; //number of dog - Como posso fazer o link com a class Dog ? Pensava fazer "Dog dog = new Dog()" mas nao posso por um objecto num tableiro de inteiros...
-		int nb10i = 3; // number of cow - Como posso fazer o link com a class Cow ?
+		int nb5i = 2; //number of dog
+		int nb10i = 3; // number of cow
 		int nb5f = 0; // counter to check how many dogs have been put in the tab
 		int nb10f = 0; // counter to check how many cows have been put in the tab
 		int x;
@@ -39,6 +39,21 @@ public class Game {
 				}
 				l++;} //index of the column
 			k++;} // index of the row
+
+		int j=0;
+		for(int index1[] : multitab) {
+			int i = 0;
+			for(int index0 : index1) {
+				System.out.println("Data registered at [" + j + "][" + i +"] is : " + multitab[j][i]);
+				i++;
+			}
+			j++;
+		}
+		System.out.println("Number of dog in the game : " + nb5f);
+		System.out.println("Number of dog left : " + nb5i);
+		System.out.println("Number of cow in the game : " + nb10f);
+		System.out.println("Number of cow left : " + nb10i);
+
 	}
 
 }

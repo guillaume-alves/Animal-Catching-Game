@@ -35,12 +35,19 @@ public class Input {
 		this.ro = Integer.parseInt(input.nextLine());
 		return this.ro;
 	}
-	
-	
+
+	public int getRo() {
+		return ro;
+	}
+
 	public int setNbColumns() { //Ask for a number of columns
 		System.out.print("Enter the number of Columns :");
 		this.co = Integer.parseInt(input.nextLine());
 		return this.co;
+	}
+
+	public int getCo() {
+		return co;
 	}
 
 }
