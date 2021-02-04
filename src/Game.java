@@ -1,5 +1,3 @@
-package GamePack;
-
 public class Game {
 	int nbRows;
 	int nbColumns;
@@ -12,7 +10,7 @@ public class Game {
 
 	public void createTab() { // create and fill a multidimensional tab with data - 100% working, testei com Visual Code Studio :)
 
-		int nb5i = 2; //number of dog - Como posso fazer o link com a class Dog ?
+		int nb5i = 2; //number of dog - Como posso fazer o link com a class Dog ? Pensava fazer "Dog dog = new Dog()" mas nao posso por um objecto num tableiro de inteiros...
 		int nb10i = 3; // number of cow - Como posso fazer o link com a class Cow ?
 		int nb5f = 0; // counter to check how many dogs have been put in the tab
 		int nb10f = 0; // counter to check how many cows have been put in the tab

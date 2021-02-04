@@ -1,5 +1,3 @@
-package GamePack;
-
 public class Dog extends Animal {
 	
 	private String race;

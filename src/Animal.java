@@ -1,5 +1,3 @@
-package GamePack;
-
 public class Animal {
 	protected String name;
 	protected String color;
@@ -14,7 +12,7 @@ public class Animal {
 	public String toString(){
 	    return "NAME : " + this.name + " - COLOR : " + this.color;
 	
-	}//TEST
+	}
 	
 	
 }

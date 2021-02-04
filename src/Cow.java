@@ -1,5 +1,3 @@
-package GamePack;
-
 public class Cow extends Animal {
 	
 	private int weight;

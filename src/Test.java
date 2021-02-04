@@ -1,4 +1,3 @@
-package GamePack;
 import java.util.Scanner;
 
 public class Test {
