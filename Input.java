@@ -44,14 +44,5 @@ public class Input {
 		this.co = Integer.parseInt(input.nextLine());
 		return this.co;
 	}
-	
-	public void setTab() { // create new multidimensional tab with registered rows and columns
-		int [][] multiTab = new int [this.ro][this.co];
-	}
-	
-	/*public void emptyLine() {
-		input.nextLine();
-	}*/
 
-		
 }

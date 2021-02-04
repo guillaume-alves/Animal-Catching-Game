@@ -4,14 +4,9 @@ public class Cow extends Animal {
 	
 	private int weight;
 	
-	public Cow (String name, String color, int weight, int points){
+	public Cow (String name, String color, int points, int weight){
 		super(name, color, points);
 		this.weight = weight;
-		setPoints();
-	}
-	
-	public void setPoints(){
-		this.points = 10;
 	}
 	
 	public String toString(){

@@ -9,10 +9,6 @@ public class Dog extends Animal {
 		this.race = race;
 	}
 	
-	public void setPoint(){
-		this.points = 5;
-	}
-	
 	public String toString() {
 	    String str = super.toString() + " - RACE : " + this.race;
 	    return str;
