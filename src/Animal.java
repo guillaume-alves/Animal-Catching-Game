@@ -1,4 +1,4 @@
-package GamePackage;
+package GamePack;
 
 public class Animal {
 	protected String name;
