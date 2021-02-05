@@ -10,35 +10,41 @@ public class Game {
 
 	public void createTab() { // create and fill a multidimensional tab with data - 100% working, testei com Visual Code Studio :)
 
-		int nb5i = 2; //number of dog
-		int nb10i = 3; // number of cow
-		int nb5f = 0; // counter to check how many dogs have been put in the tab
-		int nb10f = 0; // counter to check how many cows have been put in the tab
+		int nbDog = 2;
+		int nbCow = 3;
+		int nb5i = nbDog;
+		int nb10i = nbCow;
+		int nb5f = 0;
+		int nb10f = 0;
 		int x;
 
-		int nbRows = this.nbRows;
-		int nbColumns = this.nbColumns;
-		int [][] multitab = new int [nbRows][nbColumns]; // create the tab
+		int [][] multitab = new int [nbRows][nbColumns];
 
-		for(int k=0; k<nbRows; k++) {
+		do{
+			nb10i = nbCow;
+			nb10f = 0;
+			nb5i = nbDog;
+			nb5f = 0;
+				for (int k = 0; k < nbRows; k++) {
+					for (int l = 0; l < nbColumns; l++) {
+						do {
+							x = (int) (Math.random() * 11);
+						} while (x != 0 && x != 5 && x != 10); // Generate 0, 5 or 10 points
 
-			for(int l=0; l<nbColumns; l++) {
-				do {
-					x = (int)(Math.random() * 11);
-				} while (x != 0 &&  x != 5 && x != 10); // Generate 0, 5 or 10 points
-				if (x == 5 && nb5i>=0) {
-					multitab[k][l] = x; // fill the cell
-					nb5i--; // subtract one dog
-					nb5f++;
+						if (x == 5 && nb5i > 0) {
+							multitab[k][l] = x; // fill the cell
+							nb5i--; // subtract one dog
+							nb5f++;
+						}
+
+						else if (x == 10 && nb10i > 0) {
+							multitab[k][l] = x; // fill the cell
+							nb10i--; // subtract one cow
+							nb10f++;
+						}
+					}
 				}
-
-				else if (x == 10 && nb10i>=0) {
-					multitab[k][l] = x; // fill the cell
-					nb10i--; // subtract one cow
-					nb10f++;
-				}
-				l++;} //index of the column
-			k++;} // index of the row
+		} while (nb5f != nbDog && nb10f != nbCow);
 
 		int j=0;
 		for(int index1[] : multitab) {

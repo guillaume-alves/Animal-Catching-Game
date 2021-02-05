@@ -5,26 +5,27 @@ public class Input {
 	private String n, c, r;
 	private int w, ro, co;
 	int[][] multiTab;
-	
-	public String setName() {
+
+
+	public String setName() { //Ask for the name
 		System.out.print("Enter animal name : ");
 		this.n = input.nextLine();
 		return this.n;
 	}
 	
-	public String setColor() {
+	public String setColor() { //Ask for the color
 		System.out.print("Enter animal color : ");
 		this.c = input.nextLine();
 		return this.c;
 	}
 	
-	public String setRace() {
+	public String setRace() { //Ask for the race of the dog
 		System.out.print("Enter animal race : ");
 		this.r = input.nextLine();
 		return this.r;
 	}
 	
-	public int setWeight() {
+	public int setWeight() { //Ask for the weight of the cow
 		System.out.print("Enter animal weight : ");
 		this.w = Integer.parseInt(input.nextLine());
 		return this.w;
