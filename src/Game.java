@@ -12,19 +12,20 @@ public class Game {
 
 		int nbDog = 2;
 		int nbCow = 3;
-		int nb5i = nbDog;
-		int nb10i = nbCow;
-		int nb5f = 0;
-		int nb10f = 0;
+		int nb5i = nbDog; // initial dog counter
+		int nb10i = nbCow; // initial cow counter
+		int nb5f = 0; // final dog counter
+		int nb10f = 0; // final dog counter
 		int x;
 
-		int [][] multitab = new int [nbRows][nbColumns];
+		int [][] multitab = new int [nbRows][nbColumns]; // Create the table
 
 		do{
-			nb10i = nbCow;
-			nb10f = 0;
-			nb5i = nbDog;
-			nb5f = 0;
+			nb10i = nbCow; // Reset initial dog counter
+			nb10f = 0; // Reset initial dog counter
+			nb5i = nbDog; // Reset final dog counter
+			nb5f = 0; // Reset final dog counter
+
 				for (int k = 0; k < nbRows; k++) {
 					for (int l = 0; l < nbColumns; l++) {
 						do {
@@ -33,19 +34,20 @@ public class Game {
 
 						if (x == 5 && nb5i > 0) {
 							multitab[k][l] = x; // fill the cell
-							nb5i--; // subtract one dog
-							nb5f++;
+							nb5i--; // Subtract one dog to the initial counter
+							nb5f++; // Add one dog to the final counter
 						}
 
 						else if (x == 10 && nb10i > 0) {
 							multitab[k][l] = x; // fill the cell
-							nb10i--; // subtract one cow
-							nb10f++;
+							nb10i--; // subtract one cow to the initial counter
+							nb10f++; // Add one cow to the final counter
 						}
 					}
 				}
-		} while (nb5f != nbDog && nb10f != nbCow);
+		} while (nb5f != nbDog && nb10f != nbCow); //Repeat while all dogs and cow are in the table
 
+		// Print the table
 		int j=0;
 		for(int index1[] : multitab) {
 			int i = 0;
