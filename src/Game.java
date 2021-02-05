@@ -8,7 +8,7 @@ public class Game {
 		this.nbColumns = nbColumns;
 	}
 
-	public void createTab() { // create and fill a multidimensional tab with data - 100% working, testei com Visual Code Studio :)
+	public void createTab() { // create and fill a multidimensional tab with data
 
 		int nbDog = 2;
 		int nbCow = 3;
