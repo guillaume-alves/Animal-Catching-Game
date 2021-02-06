@@ -13,7 +13,5 @@ public class Animal {
 	    return "NAME : " + this.name + " - COLOR : " + this.color;
 	
 	}
-	
-	
 }
 
