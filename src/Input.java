@@ -6,7 +6,7 @@ public class Input {
 	private int w, nbRowsInit, nbColumnsInit, nbRowToPlay, nbColToPlay, nbDog, nbCow, nbAnimal, choice;
 
 	public void setPlayerOneName() {
-		System.out.print("Enter player 1 name : ");
+		System.out.print("\tEnter player 1 name : ");
 		this.player1 = input.nextLine();
 	}
 
@@ -15,7 +15,7 @@ public class Input {
 	}
 
 	public void setPlayerTwoName() {
-		System.out.print("Enter player 2 name : ");
+		System.out.print("\tEnter player 2 name : ");
 		this.player2 = input.nextLine();
 	}
 
@@ -24,7 +24,7 @@ public class Input {
 	}
 
 	public void setAnimalName() { //Ask for the animal name
-		System.out.print("Enter animal name : ");
+		System.out.print("\tEnter animal name : ");
 		this.n = input.nextLine();
 	}
 
@@ -33,7 +33,7 @@ public class Input {
 	}
 
 	public void setAnimalColor() { //Ask for the color
-		System.out.print("Enter animal color : ");
+		System.out.print("\tEnter animal color : ");
 		this.c = input.nextLine();
 	}
 
@@ -42,7 +42,7 @@ public class Input {
 	}
 
 	public void setAnimalRace() { //Ask for the race of the dog
-		System.out.print("Enter animal race : ");
+		System.out.print("\tEnter animal race : ");
 		this.r = input.nextLine();
 	}
 
@@ -51,7 +51,7 @@ public class Input {
 	}
 
 	public void setAnimalWeight() { //Ask for the weight of the cow
-		System.out.print("Enter animal weight : ");
+		System.out.print("\tEnter animal weight : ");
 		this.w = Integer.parseInt(input.nextLine());
 	}
 
@@ -60,7 +60,7 @@ public class Input {
 	}
 
 	public void setNbRowsInit() { //Ask for a number of rows
-		System.out.print("Enter the number of Rows :");
+		System.out.print("\tEnter the number of Rows : ");
 		this.nbRowsInit = Integer.parseInt(input.nextLine());
 	}
 
@@ -69,7 +69,7 @@ public class Input {
 	}
 
 	public void setNbColumnsInit() { //Ask for a number of columns
-		System.out.print("Enter the number of Columns :");
+		System.out.print("\tEnter the number of Columns : ");
 		this.nbColumnsInit = Integer.parseInt(input.nextLine());
 	}
 
@@ -78,7 +78,7 @@ public class Input {
 	}
 
 	public void setNbRowToPlay() { //Ask for a number of columns
-		System.out.print("Choose the row to play :");
+		System.out.print("Choose the row to play : ");
 		this.nbRowToPlay = Integer.parseInt(input.nextLine());
 
 	}
@@ -106,7 +106,7 @@ public class Input {
 	}
 
 	public void setNbDog() {
-		System.out.print("How many Dog do you want to add ?");
+		System.out.print("\tHow many Dog do you want to add ? ");
 		this.nbDog = Integer.parseInt(input.nextLine());
 	}
 
@@ -115,7 +115,7 @@ public class Input {
 	}
 
 	public void setNbCow() {
-		System.out.print("How many Cow do you want to add ?");
+		System.out.print("\tHow many Cow do you want to add ? ");
 		this.nbCow = Integer.parseInt(input.nextLine());
 	}
 
@@ -124,20 +124,41 @@ public class Input {
 	}
 
 	public void setNbAnimal() {
-		System.out.print("How many Cow do you want to add ?");
+		System.out.print("\tHow many Animal do you want to add ? ");
 		this.nbAnimal = Integer.parseInt(input.nextLine());
 	}
 
 	public int getNbAnimal() {
 		return nbAnimal;
 	}
-	public int getChoiceAnimal(){
+
+	/*public int getChoiceAnimal(){
 		do {
 			System.out.print("\nChoose the type of animal you want to insert data :\n1 - Dog\n2 - Cow\nYour choice : ");
 			this.choice = Integer.parseInt(input.nextLine());
 			if (this.choice != 1 && this.choice != 2) {System.out.println("Error - no valid choice");}
 		} while (this.choice != 1 && this.choice != 2);
 			return choice;
+	}*/
+
+	public void playerMessage() {
+		System.out.print("\nStep 1 : Enter the player's name\n");
+	}
+
+	public void gridMessage() {
+		System.out.print("\nStep 2 : Size the game grid\n");
+	}
+
+	public void animalMessage() {
+		System.out.print("\nStep 3 : Number of animals to find\n");
+	}
+
+	public void dogMessage() {
+		System.out.print("\nStep 4 : Add the dog number ");
+	}
+
+	public void cowMessage() {
+		System.out.print("\nStep 5 : Add the cow number ");
 	}
 
 }

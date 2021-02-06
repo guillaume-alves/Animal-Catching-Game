@@ -28,15 +28,7 @@ public class Game {
 		Player[] userTab = new Player[2];
 		userTab[0] = user1;
 		userTab[1] = user2;
-
-		// Print the table
-		int i = 0;
-		for (Player index0 : userTab) {
-			System.out.println("Data registered at [" + i + "] is : " + (userTab[i]));
-			i++;
-		}
-		System.out.println("Welcome " + user1.getPlayerName() + " and " + user2.getPlayerName());
-		System.out.println("Welcome " + user1.getPlayerName() + " and " + user2.getPlayerName());
+		System.out.println("Welcome " + user1.getPlayerName() + " and " + user2.getPlayerName() + " !");
 	}
 
 	public void createGameTab(Dog [] dogTab, Cow [] cowTab, Animal [][] gameTab, int NbDog, int NbCow) {
