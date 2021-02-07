@@ -81,10 +81,20 @@ public class Game {
 		System.out.println("Number of dog left : " + nb5i);
 		System.out.println("Number of cow in the game : " + nb10f);
 		System.out.println("Number of cow left : " + nb10i);
-
-
-		//if (gameTab[0][1] == 5) System.out.println("Vache trouvée ! --> 10 points");
-		//else if (gameTab[0][1] == 10) System.out.println("Vache trouvée ! --> 10 points");
 	}
-
+	public void readTable(Animal [][] gameTab, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay, int NbDog, int NbCow,
+						  String playerName, int playerScore) {
+		for (int d = 0; d < NbDog; d++) {
+			if (gameTab[rowToPlay][columnToPlay] == dogTab[d]) {
+				gameTab[rowToPlay][columnToPlay] = null;
+				System.out.println("You find a dog !\n +5 points for "+playerName+". Total score P1 : "+playerScore);
+			}
+		}
+		for (int c = 0; c < NbCow; c++) {
+			if (gameTab[rowToPlay][columnToPlay] == cowTab[c]) {
+				gameTab[rowToPlay][columnToPlay] = null;
+				System.out.println("You find a cow !\n +10 points for "+playerName+". Total score P1 : "+playerScore);
+			}
+		}
+	}
 }

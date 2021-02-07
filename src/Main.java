@@ -10,18 +10,18 @@ public class Main {
         input.setPlayerOneName();
         input.setPlayerTwoName();
 
-        // Declare new object from class Input to call methods
-        Game game = new Game(input.getNbRowsInit(), input.getNbColumnsInit());
-
-        // Define players and reset scores
-        Player user1 = new Player(input.getPlayerOneName(), 0);
-        Player user2 = new Player(input.getPlayerTwoName(), 0);
-        game.createPlayerTab(user1, user2);
-
         // Ask for the size of the grid
         input.gridMessage();
         input.setNbRowsInit();
         input.setNbColumnsInit();
+
+        // Declare new object from class Input to call methods
+        Game game = new Game(input.getNbRowsInit(), input.getNbColumnsInit());
+
+        // Define players and reset scores
+        Player player1 = new Player(input.getPlayerOneName(), 0);
+        Player player2 = new Player(input.getPlayerTwoName(), 0);
+        game.createPlayerTab(player1, player2);
 
         // Ask for number of animals
         input.animalMessage();
@@ -59,9 +59,10 @@ public class Main {
 
         // Play turn
         input.playerOneTurn();
-        input.setNbColToPlay();
-        input.setNbColToPlay();
-
+        input.setRowToPlay();
+        input.setColumnToPlay();
+        game.readTable(gameTab, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay(), input.getNbDog(), input.getNbCow(),
+                player1.getPlayerName(), player1.getPlayerScore());
     }
 
 }

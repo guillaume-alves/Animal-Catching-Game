@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Input {
 	Scanner input = new Scanner(System.in);
 	private String n, c, r, player1, player2;
-	private int w, nbRowsInit, nbColumnsInit, nbRowToPlay, nbColToPlay, nbDog, nbCow, nbAnimal, choice;
+	private int w, nbRowsInit, nbColumnsInit, rowToPlay, columnToPlay, nbDog, nbCow, nbAnimal, choice;
 
 	public void setPlayerOneName() {
 		System.out.print("\tEnter player 1 name : ");
@@ -77,24 +77,24 @@ public class Input {
 		return nbColumnsInit;
 	}
 
-	public void setNbRowToPlay() { //Ask for a number of columns
+	public void setRowToPlay() { //Ask for a number of columns
 		System.out.print("Choose the row to play : ");
-		this.nbRowToPlay = Integer.parseInt(input.nextLine());
+		this.rowToPlay = Integer.parseInt(input.nextLine());
 
 	}
 
-	public void setNbColToPlay() { //Ask for a number of columns
-		System.out.print("Choose the row to play :");
-		this.nbColToPlay = Integer.parseInt(input.nextLine());
+	public void setColumnToPlay() { //Ask for a number of columns
+		System.out.print("Choose the row to play : ");
+		this.columnToPlay = Integer.parseInt(input.nextLine());
 
 	}
 
-	public void setNbRowToPlay(int nbRowToPlay) {
-		this.nbRowToPlay = nbRowToPlay;
+	public int getRowToPlay(){
+		return rowToPlay = rowToPlay;
 	}
 
-	public void setNbColToPlay(int nbColToPlay) {
-		this.nbColToPlay = nbColToPlay;
+	public int getColumnToPlay(){
+		return columnToPlay = columnToPlay;
 	}
 
 	public void playerOneTurn() {
