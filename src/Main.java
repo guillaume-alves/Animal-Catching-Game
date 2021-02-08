@@ -9,8 +9,10 @@ public class Main {
         input.playerMessage();
         input.setPlayerName(1);
         Player player1 = new Player(input.getPlayerName(1));
+        player1.setPlayerScore(0);
         input.setPlayerName(2);
         Player player2 = new Player(input.getPlayerName(2));
+        player2.setPlayerScore(0);
 
         // Ask for the size of the grid
         input.gridMessage();
