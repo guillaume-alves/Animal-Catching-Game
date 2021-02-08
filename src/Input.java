@@ -71,13 +71,11 @@ public class Input {
 	public void setRowToPlay() { //Ask for a number of columns
 		System.out.print("Choose the row to play : ");
 		this.rowToPlay = Integer.parseInt(input.nextLine());
-
 	}
 
 	public void setColumnToPlay() { //Ask for a number of columns
-		System.out.print("Choose the row to play : ");
+		System.out.print("Choose the column to play : ");
 		this.columnToPlay = Integer.parseInt(input.nextLine());
-
 	}
 
 	public int getRowToPlay(){

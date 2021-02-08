@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Game {
 	int nbRows, nbColumns, nbDog, nbCow;
@@ -40,6 +38,8 @@ public class Game {
 
 	public void createPlayerTab() { // Create the tab that contains the users
 		Player[] playerTab = new Player[2];
+		Player player1 = playerTab[1];
+		Player player2 = playerTab[1];
 	}
 
 	public void createGameTab(Dog[] dogTab, Cow[] cowTab, int nbDog, int nbCow) {
@@ -66,5 +66,31 @@ public class Game {
 
 		// Print the table
 		System.out.println(gameTab);
+	}
+
+
+	public void playerTurn(int x, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay) {
+
+		int j = ((getGameNbColumns() * (rowToPlay)) + columnToPlay+1);
+
+		for (int i = 0; i < nbDog; i++) {
+			if (gameTab.get(j) == dogTab[i]) {
+				playerTab[x].setPlayerScore(playerTab[x].getPlayerScore()+5);
+				gameTab.set(j, null);
+				nbDog--;
+			}
+		}
+
+		for (int i = 0; i < nbCow; i++) {
+			if (gameTab.get(j) == cowTab[i]) {
+				playerTab[x].setPlayerScore(playerTab[x].getPlayerScore()+10);
+				gameTab.set(j, null);
+				nbCow--;
+			}
+		}
+
+		// Print the table
+		System.out.println(gameTab);
+
 	}
 }

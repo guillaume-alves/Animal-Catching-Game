@@ -33,31 +33,47 @@ public class Main {
         Cow [] cowTab = new Cow [input.getNbCow()];
         int i;
         for (i=0;i<input.getNbDog();i++) {
-                input.dogMessage();
-                System.out.print((i+1) + "\n");
-                input.setAnimalName();
-                input.setAnimalColor();
-                input.setAnimalRace();
-                points = 5;
-                Dog dog = new Dog(input.getAnimalName(), input.getAnimalColor(), points, input.getAnimalRace());
-                dogTab[i] = dog;
-            }
+            input.dogMessage();
+            System.out.print((i+1) + "\n");
+            input.setAnimalName();
+            input.setAnimalColor();
+            input.setAnimalRace();
+            points = 5;
+            Dog dog = new Dog(input.getAnimalName(), input.getAnimalColor(), points, input.getAnimalRace());
+            dogTab[i] = dog;
+        }
         for (i=0;i<input.getNbCow();i++) {
-                input.cowMessage();
-                System.out.print((i+1) + "\n");
-                input.setAnimalName();
-                input.setAnimalColor();
-                input.setAnimalWeight();
-                points = 10;
-                Cow cow = new Cow(input.getAnimalName(), input.getAnimalColor(), points, input.getAnimalWeigh());
-                cowTab[i] = cow;
-            }
+            input.cowMessage();
+            System.out.print((i+1) + "\n");
+            input.setAnimalName();
+            input.setAnimalColor();
+            input.setAnimalWeight();
+            points = 10;
+            Cow cow = new Cow(input.getAnimalName(), input.getAnimalColor(), points, input.getAnimalWeigh());
+            cowTab[i] = cow;
+        }
 
         // Create the gameTab
         game.createGameTab(dogTab, cowTab, input.getNbDog(), input.getNbCow());
 
-        // Play turn
+        // One play cycle
 
+        for (i=0;i<(game.getNbDog()+game.getNbCow());i++) {
+            player1.getPlayerName(); // Player 1 turn
+            do {
+                input.setRowToPlay();
+                input.setColumnToPlay();
+            } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+            game.playerTurn(1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
+
+            player2.getPlayerName(); // Player 2 turn
+            do {
+                input.setRowToPlay();
+                input.setColumnToPlay();
+            } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+
+            game.playerTurn(1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
+
+        }
     }
-
 }
