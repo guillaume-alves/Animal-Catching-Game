@@ -2,25 +2,16 @@ import java.util.Scanner;
 
 public class Input {
 	Scanner input = new Scanner(System.in);
-	private String n, c, r, player1, player2;
-	private int w, nbRowsInit, nbColumnsInit, rowToPlay, columnToPlay, nbDog, nbCow, nbAnimal, choice;
+	private String n, c, r, player;
+	private int x, w, nbRowsInit, nbColumnsInit, rowToPlay, columnToPlay, nbDog, nbCow, nbAnimal, choice;
 
-	public void setPlayerOneName() {
-		System.out.print("\tEnter player 1 name : ");
-		this.player1 = input.nextLine();
+	public void setPlayerName(int x) {
+		System.out.print("\tEnter player " + x + " name : ");
+		this.player = input.nextLine();
 	}
 
-	public String getPlayerOneName() {
-		return player1;
-	}
-
-	public void setPlayerTwoName() {
-		System.out.print("\tEnter player 2 name : ");
-		this.player2 = input.nextLine();
-	}
-
-	public String getPlayerTwoName() {
-		return player2;
+	public String getPlayerName(int x) {
+		return player;
 	}
 
 	public void setAnimalName() { //Ask for the animal name
