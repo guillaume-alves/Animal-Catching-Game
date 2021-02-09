@@ -36,26 +36,23 @@ public class Game {
 
 	public void setNbCow(int nbCow) { this.nbCow = nbCow; }
 
-	public void createPlayerTab() { // Create the tab that contains the users
-		Player[] playerTab = new Player[2];
-		Player player1 = playerTab[1];
-		Player player2 = playerTab[1];
+	public void createPlayerTab(Player player1, Player player2) { // Create the tab that contains the users
+		playerTab[0] = player1;
+		playerTab[1] = player2;
 	}
 
 	public void createGameTab(Dog[] dogTab, Cow[] cowTab, int nbDog, int nbCow) {
 		int nb5i = nbDog; // initial dog counter
 		int nb10i = nbCow; // initial cow counter
-		int nb5f = 0; // final dog counter
-		int nb10f = 0; // final dog counter
-		int i;
+		int i, j, e;
 
 		Animal emptyAnimal = new Animal(null, null, 0);
 
 		for (i = 0; i < nb5i; i++) {
 			gameTab.add(dogTab[i]);
-			for (i = 0; i < nb10i; i++) {
-				gameTab.add(cowTab[i]);
-				for (i = 0; i < ((nbRows * nbColumns) - (nb5i + nb10i)); i++) {
+			for (j = 0; j < nb10i; j++) {
+				gameTab.add(cowTab[j]);
+				for (e = 0; e < ((nbRows * nbColumns) - (nb5i + nb10i)); e++) {
 					gameTab.add(emptyAnimal);
 				}
 			}
@@ -68,14 +65,14 @@ public class Game {
 		System.out.println(gameTab);
 	}
 
-
-	public void playerTurn(int x, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay) {
-
-		int j = ((getGameNbColumns() * (rowToPlay)) + columnToPlay+1);
-
+	public void playerTurn(Player player, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay) {
+		int c;
+		if (rowToPlay==0) c=0;
+			else c=(rowToPlay-1);
+		int j = ((c*3 + columnToPlay)-1);
 		for (int i = 0; i < nbDog; i++) {
 			if (gameTab.get(j) == dogTab[i]) {
-				playerTab[x].setPlayerScore(playerTab[x].getPlayerScore()+5);
+				player.setPlayerScore(player.getPlayerScore()+5);
 				gameTab.set(j, null);
 				nbDog--;
 			}
@@ -83,7 +80,7 @@ public class Game {
 
 		for (int i = 0; i < nbCow; i++) {
 			if (gameTab.get(j) == cowTab[i]) {
-				playerTab[x].setPlayerScore(playerTab[x].getPlayerScore()+10);
+				player.setPlayerScore(player.getPlayerScore()+10);
 				gameTab.set(j, null);
 				nbCow--;
 			}
@@ -91,6 +88,7 @@ public class Game {
 
 		// Print the table
 		System.out.println(gameTab);
+		System.out.println(player.getPlayerScore());
 
 	}
 }

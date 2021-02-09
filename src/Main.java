@@ -26,7 +26,7 @@ public class Main {
 
         // Declare new object from class Input to call methods
         Game game = new Game(input.getNbRowsInit(), input.getNbColumnsInit(), input.getNbDog(), input.getNbCow());
-        game.createPlayerTab();
+        game.createPlayerTab(player1, player2);
 
         // Create an array of animals
         Dog [] dogTab = new Dog [input.getNbDog()];
@@ -57,22 +57,25 @@ public class Main {
         game.createGameTab(dogTab, cowTab, input.getNbDog(), input.getNbCow());
 
         // One play cycle
-
         for (i=0;i<(game.getNbDog()+game.getNbCow());i++) {
-            player1.getPlayerName(); // Player 1 turn
+           // Player 1 turn
+            input.playerTurn(player1.getPlayerName());
+            do {
+                input.setRowToPlay();
+                    if (input.getRowToPlay()>input.getNbRowsInit()) input.rowErrorMessage();
+                input.setColumnToPlay();
+                    if (input.getRowToPlay()>input.getNbRowsInit()) input.columnErrorMessage();
+            } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+            game.playerTurn(player1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
+
+            // Player 2 turn
+            input.playerTurn(player2.getPlayerName());
             do {
                 input.setRowToPlay();
                 input.setColumnToPlay();
             } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
-            game.playerTurn(1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
 
-            player2.getPlayerName(); // Player 2 turn
-            do {
-                input.setRowToPlay();
-                input.setColumnToPlay();
-            } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
-
-            game.playerTurn(1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
+            game.playerTurn(player2, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
 
         }
     }

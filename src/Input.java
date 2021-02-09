@@ -121,15 +121,6 @@ public class Input {
 		return nbAnimal;
 	}
 
-	/*public int getChoiceAnimal(){
-		do {
-			System.out.print("\nChoose the type of animal you want to insert data :\n1 - Dog\n2 - Cow\nYour choice : ");
-			this.choice = Integer.parseInt(input.nextLine());
-			if (this.choice != 1 && this.choice != 2) {System.out.println("Error - no valid choice");}
-		} while (this.choice != 1 && this.choice != 2);
-			return choice;
-	}*/
-
 	public void playerMessage() {
 		System.out.print("\nStep 1 : Enter the player's name\n");
 	}
@@ -148,6 +139,16 @@ public class Input {
 
 	public void cowMessage() {
 		System.out.print("\nStep 5 : Add the cow number ");
+	}
+
+	public void playerTurn(String player) {
+		System.out.print("\nYour turn to play " + player + "\n");
+	}
+
+	public void rowErrorMessage() {	System.out.print("\nError : invalid row number !\n"); }
+
+	public void columnErrorMessage() {
+		System.out.print("\nError : invalid column number !\n");
 	}
 
 }
