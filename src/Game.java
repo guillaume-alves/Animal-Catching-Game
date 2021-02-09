@@ -67,6 +67,7 @@ public class Game {
 		for (int i = 0; i < nbDog; i++) {
 			if (gameTab.get(j) == dogTab[i]) {
 				player.setPlayerScore(player.getPlayerScore()+5);
+				player.enterAnimalIntoPlayerAnimalTab(dogTab[i]);
 				gameTab.set(j, null);
 				nbDog--;
 			}
@@ -75,6 +76,7 @@ public class Game {
 		for (int i = 0; i < nbCow; i++) {
 			if (gameTab.get(j) == cowTab[i]) {
 				player.setPlayerScore(player.getPlayerScore()+10);
+				player.enterAnimalIntoPlayerAnimalTab(cowTab[i]);
 				gameTab.set(j, null);
 				nbCow--;
 			}

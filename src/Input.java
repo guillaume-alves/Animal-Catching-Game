@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
@@ -69,12 +70,12 @@ public class Input {
 	}
 
 	public void setRowToPlay() { //Ask for a number of columns
-		System.out.print("Choose the row to play : ");
+		System.out.print("Choose the row to play (starting from 1) : ");
 		this.rowToPlay = Integer.parseInt(input.nextLine());
 	}
 
 	public void setColumnToPlay() { //Ask for a number of columns
-		System.out.print("Choose the column to play : ");
+		System.out.print("Choose the column to play (starting from 1) : ");
 		this.columnToPlay = Integer.parseInt(input.nextLine());
 	}
 
@@ -151,12 +152,17 @@ public class Input {
 		System.out.print("\nError : invalid column number !\n");
 	}
 
-	public void recapMessage(String player, int score) {
-		System.out.print( player + ", your score is : " + score + "\n");
+	public void scoreRecapMessage(String player, int score) {
+		System.out.print(player + ", your score is : " + score + "\n");
+	}
+
+	public void animalRecapMessage(String player, ArrayList<Animal> playerAnimalTab) {
+		System.out.print(player + ", the animals you have caught are : " + playerAnimalTab + "\n");
 	}
 
 	public void endMessage(String player) {
 		System.out.print("\nThe game is over ! " + player + " has won !\n");
 	}
+
 
 }
