@@ -56,8 +56,8 @@ public class Main {
         // Create the gameTab
         game.createGameTab(dogTab, cowTab, input.getNbDog(), input.getNbCow());
 
-        // One play cycle
-        for (i=0;i<(game.getNbDog()+game.getNbCow());i++) {
+        // A full play cycle (player 1 and 2)
+        do{
            // Player 1 turn
             input.playerTurn(player1.getPlayerName());
             do {
@@ -66,7 +66,9 @@ public class Main {
                 input.setColumnToPlay();
                     if (input.getRowToPlay()>input.getNbRowsInit()) input.columnErrorMessage();
             } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+
             game.playerTurn(player1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
+
             input.recapMessage(player1.getPlayerName(), player1.getPlayerScore());
             input.recapMessage(player2.getPlayerName(), player2.getPlayerScore());
 
@@ -76,11 +78,14 @@ public class Main {
                 input.setRowToPlay();
                 input.setColumnToPlay();
             } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+
             input.recapMessage(player1.getPlayerName(), player1.getPlayerScore());
             input.recapMessage(player2.getPlayerName(), player2.getPlayerScore());
 
             game.playerTurn(player2, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
+        } while((game.getNbDog()+ game.getNbCow()) != 0);
 
-        }
+        if (player1.getPlayerScore()>player2.getPlayerScore()) input.endMessage(player1.getPlayerName());
+            else input.endMessage(player2.getPlayerName());
     }
 }

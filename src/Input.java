@@ -152,7 +152,11 @@ public class Input {
 	}
 
 	public void recapMessage(String player, int score) {
-		System.out.print("\n" + player + ", your score is : " + score);
+		System.out.print( player + ", your score is : " + score + "\n");
+	}
+
+	public void endMessage(String player) {
+		System.out.print("\nThe game is over ! " + player + " has won !\n");
 	}
 
 }

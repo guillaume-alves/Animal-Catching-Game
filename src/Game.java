@@ -54,13 +54,16 @@ public class Game {
 
 		//Shuffle the list
 		Collections.shuffle(gameTab);
+
+		// Print for test
+		System.out.print("\n" +gameTab);
 	}
 
 	public void playerTurn(Player player, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay) {
 		int c;
 		if (rowToPlay==0) c=0;
 			else c=(rowToPlay-1);
-		int j = ((c*3 + columnToPlay)-1);
+		int j = ((c*nbColumns) + (columnToPlay-1));
 		for (int i = 0; i < nbDog; i++) {
 			if (gameTab.get(j) == dogTab[i]) {
 				player.setPlayerScore(player.getPlayerScore()+5);
