@@ -142,13 +142,17 @@ public class Input {
 	}
 
 	public void playerTurn(String player) {
-		System.out.print("\nYour turn to play " + player + "\n");
+		System.out.print("\n" + player + ", it's your turn to play !\n");
 	}
 
 	public void rowErrorMessage() {	System.out.print("\nError : invalid row number !\n"); }
 
 	public void columnErrorMessage() {
 		System.out.print("\nError : invalid column number !\n");
+	}
+
+	public void recapMessage(String player, int score) {
+		System.out.print("\n" + player + ", your score is : " + score);
 	}
 
 }

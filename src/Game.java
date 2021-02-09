@@ -44,25 +44,16 @@ public class Game {
 	public void createGameTab(Dog[] dogTab, Cow[] cowTab, int nbDog, int nbCow) {
 		int nb5i = nbDog; // initial dog counter
 		int nb10i = nbCow; // initial cow counter
-		int i, j, e;
+		int i;
 
 		Animal emptyAnimal = new Animal(null, null, 0);
 
-		for (i = 0; i < nb5i; i++) {
-			gameTab.add(dogTab[i]);
-			for (j = 0; j < nb10i; j++) {
-				gameTab.add(cowTab[j]);
-				for (e = 0; e < ((nbRows * nbColumns) - (nb5i + nb10i)); e++) {
-					gameTab.add(emptyAnimal);
-				}
-			}
-		}
+		for (i = 0; i < nb5i; i++) gameTab.add(dogTab[i]);
+		for (i = 0; i < nb10i; i++) gameTab.add(cowTab[i]);
+		for (i = 0; i < ((nbRows * nbColumns) - (nb5i + nb10i)); i++) gameTab.add(emptyAnimal);
 
 		//Shuffle the list
 		Collections.shuffle(gameTab);
-
-		// Print the table
-		System.out.println(gameTab);
 	}
 
 	public void playerTurn(Player player, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay) {
@@ -85,10 +76,5 @@ public class Game {
 				nbCow--;
 			}
 		}
-
-		// Print the table
-		System.out.println(gameTab);
-		System.out.println(player.getPlayerScore());
-
 	}
 }

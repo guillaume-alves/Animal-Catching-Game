@@ -67,6 +67,8 @@ public class Main {
                     if (input.getRowToPlay()>input.getNbRowsInit()) input.columnErrorMessage();
             } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
             game.playerTurn(player1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
+            input.recapMessage(player1.getPlayerName(), player1.getPlayerScore());
+            input.recapMessage(player2.getPlayerName(), player2.getPlayerScore());
 
             // Player 2 turn
             input.playerTurn(player2.getPlayerName());
@@ -74,6 +76,8 @@ public class Main {
                 input.setRowToPlay();
                 input.setColumnToPlay();
             } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+            input.recapMessage(player1.getPlayerName(), player1.getPlayerScore());
+            input.recapMessage(player2.getPlayerName(), player2.getPlayerScore());
 
             game.playerTurn(player2, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay());
 
