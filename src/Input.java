@@ -16,7 +16,7 @@ public class Input {
 	}
 
 	public void setAnimalName() { //Ask for the animal name
-		System.out.print("\tEnter animal name : ");
+		System.out.print("\tEnter the name of the animal : ");
 		this.n = input.nextLine();
 	}
 
@@ -25,7 +25,7 @@ public class Input {
 	}
 
 	public void setAnimalColor() { //Ask for the color
-		System.out.print("\tEnter animal color : ");
+		System.out.print("\tEnter the color of the animal : ");
 		this.c = input.nextLine();
 	}
 
@@ -34,7 +34,7 @@ public class Input {
 	}
 
 	public void setAnimalRace() { //Ask for the race of the dog
-		System.out.print("\tEnter animal race : ");
+		System.out.print("\tEnter the race of the dog : ");
 		this.r = input.nextLine();
 	}
 
@@ -43,7 +43,7 @@ public class Input {
 	}
 
 	public void setAnimalWeight() { //Ask for the weight of the cow
-		System.out.print("\tEnter animal weight : ");
+		System.out.print("\tEnter the weight of the cow (Kg) : ");
 		this.w = Integer.parseInt(input.nextLine());
 	}
 
@@ -52,7 +52,7 @@ public class Input {
 	}
 
 	public void setNbRowsInit() { //Ask for a number of rows
-		System.out.print("\tEnter the number of Rows : ");
+		System.out.print("\tEnter the number of rows fo the grid : ");
 		this.nbRowsInit = Integer.parseInt(input.nextLine());
 	}
 
@@ -61,7 +61,7 @@ public class Input {
 	}
 
 	public void setNbColumnsInit() { //Ask for a number of columns
-		System.out.print("\tEnter the number of Columns : ");
+		System.out.print("\tEnter the number of columns of the grid : ");
 		this.nbColumnsInit = Integer.parseInt(input.nextLine());
 	}
 
@@ -122,6 +122,16 @@ public class Input {
 		return nbAnimal;
 	}
 
+	public void introMessage() {
+		System.out.print("***** WELCOME TO THE ANIMAL CATCHING GAME ! *****\n");
+		System.out.print("- In this 2 players game you will have to catch animals (dog or cow) in a grid (row x columns).\n" +
+				"- The parameters of the game (number of animals, features, size of the grid) are previously set by you !\n" +
+				"- The grid randomly generated with the animals and empty cells.\n"+
+				"- On you turn, you have to choose one cell with its coordinates (number of the row and column)\n" +
+				"- You will earn 10 points for catching a cow, 5 for a cow and 0 if you pick an empty cell.\n" +
+				"- The winner is the one with the most points at the end of the game.\n");
+	}
+
 	public void playerMessage() {
 		System.out.print("\nStep 1 : Enter the player's name\n");
 	}
@@ -156,8 +166,8 @@ public class Input {
 		System.out.print(player + ", your score is : " + score + "\n");
 	}
 
-	public void animalRecapMessage(String player, ArrayList<Animal> playerAnimalTab) {
-		System.out.print(player + ", the animals you have caught are : " + playerAnimalTab + "\n");
+	public void animalRecapMessage(String player, ArrayList<Animal> playerAnimalTab, int playerscore) {
+		System.out.print(player + ", the animals you have caught are : " + playerAnimalTab + " * TOTAL SCORE : " + playerscore + "\n");
 	}
 
 	public void endMessage(String player) {

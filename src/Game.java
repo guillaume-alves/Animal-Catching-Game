@@ -55,8 +55,8 @@ public class Game {
 		//Shuffle the list
 		Collections.shuffle(gameTab);
 
-		// Print for test
-		System.out.print("\n" +gameTab);
+		/* // Print for test
+		System.out.print("\n" +gameTab);*/
 	}
 
 	public void playerTurn(Player player, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay) {

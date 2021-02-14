@@ -5,6 +5,9 @@ public class Main {
         int x=0;
         Input input = new Input(); //declare new object from class Input to call methods
 
+        // Introduction message
+        input.introMessage();
+
         // Define players and reset scores
         input.playerMessage();
         input.setPlayerName(1);
@@ -60,14 +63,16 @@ public class Main {
             input.playerTurn(player1.getPlayerName());
             do {
                 input.setRowToPlay();
-                    if (input.getRowToPlay()>input.getNbRowsInit() || input.getRowToPlay()<0) {
+                    if (input.getRowToPlay()>input.getNbRowsInit() || input.getRowToPlay()<1) {
                         input.rowErrorMessage();
                     }
+            } while (input.getRowToPlay()>input.getNbRowsInit() || input.getRowToPlay()<1);;
+            do{
                 input.setColumnToPlay();
-                    if (input.getRowToPlay()>input.getNbRowsInit() || input.getColumnToPlay()<0) {
+                    if (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1) {
                         input.columnErrorMessage();
                     }
-            } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+            } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
             game.playerTurn(player1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 1 turn
 
@@ -78,14 +83,16 @@ public class Main {
             input.playerTurn(player2.getPlayerName());
             do {
                 input.setRowToPlay();
-                if (input.getRowToPlay()>input.getNbRowsInit() || input.getRowToPlay()<0) {
+                if (input.getRowToPlay()>input.getNbRowsInit() || input.getRowToPlay()<1) {
                     input.rowErrorMessage();
                 }
+            } while (input.getRowToPlay()>input.getNbRowsInit() || input.getRowToPlay()<1);;
+            do{
                 input.setColumnToPlay();
-                if (input.getRowToPlay()>input.getNbRowsInit() || input.getColumnToPlay()<0) {
+                if (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1) {
                     input.columnErrorMessage();
                 }
-            } while (input.getRowToPlay()>input.getNbRowsInit() && input.getColumnToPlay()>input.getNbColumnsInit());
+            } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
             game.playerTurn(player2, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 2 turn
 
@@ -97,7 +104,7 @@ public class Main {
         if (player1.getPlayerScore()>player2.getPlayerScore()) input.endMessage(player1.getPlayerName());
             else input.endMessage(player2.getPlayerName());
 
-        input.animalRecapMessage(player1.getPlayerName(),player1.getPlayerAnimalTab());
-        input.animalRecapMessage(player2.getPlayerName(),player2.getPlayerAnimalTab());
+        input.animalRecapMessage(player1.getPlayerName(),player1.getPlayerAnimalTab(),player1.getPlayerScore());
+        input.animalRecapMessage(player2.getPlayerName(),player2.getPlayerAnimalTab(),player2.getPlayerScore());
     }
 }
