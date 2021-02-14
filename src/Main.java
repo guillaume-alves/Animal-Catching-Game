@@ -23,15 +23,15 @@ public class Main {
         // Ask for number of animals
         input.animalMessage();
         input.setNbDog();
-        input.setNbCow();
+        input.setNbCat();
 
         // Declare new object from class Input to call methods
-        Game game = new Game(input.getNbRowsInit(), input.getNbColumnsInit(), input.getNbDog(), input.getNbCow());
+        Game game = new Game(input.getNbRowsInit(), input.getNbColumnsInit(), input.getNbDog(), input.getNbCat());
         game.createPlayerTab(player1, player2);
 
         // Create an array of animals
         Dog [] dogTab = new Dog [input.getNbDog()];
-        Cow [] cowTab = new Cow [input.getNbCow()];
+        Cat[] catTab = new Cat[input.getNbCat()];
         int i;
         for (i=0;i<input.getNbDog();i++) {
             input.dogMessage();
@@ -43,19 +43,19 @@ public class Main {
             Dog dog = new Dog(input.getAnimalName(), input.getAnimalColor(), points, input.getAnimalRace());
             dogTab[i] = dog;
         }
-        for (i=0;i<input.getNbCow();i++) {
-            input.cowMessage();
+        for (i=0;i<input.getNbCat();i++) {
+            input.catMessage();
             System.out.print((i+1) + "\n");
             input.setAnimalName();
             input.setAnimalColor();
             input.setAnimalWeight();
             points = 10;
-            Cow cow = new Cow(input.getAnimalName(), input.getAnimalColor(), points, input.getAnimalWeigh());
-            cowTab[i] = cow;
+            Cat cat = new Cat(input.getAnimalName(), input.getAnimalColor(), points, input.getAnimalWeigh());
+            catTab[i] = cat;
         }
 
         // Create the gameTab
-        game.createGameTab(dogTab, cowTab, input.getNbDog(), input.getNbCow());
+        game.createGameTab(dogTab, catTab, input.getNbDog(), input.getNbCat());
 
         // A full play cycle (player 1 and 2)
         do{
@@ -74,10 +74,10 @@ public class Main {
                     }
             } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
-            game.playerTurn(player1, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 1 turn
+            game.playerTurn(player1, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 1 turn
 
-            input.scoreRecapMessage(player1.getPlayerName(), player1.getPlayerScore());
-            input.scoreRecapMessage(player2.getPlayerName(), player2.getPlayerScore());
+            /*input.scoreRecapMessage(player1.getPlayerName(), player1.getPlayerScore());
+            input.scoreRecapMessage(player2.getPlayerName(), player2.getPlayerScore());*/
 
             // Player 2 turn
             input.playerTurn(player2.getPlayerName());
@@ -94,12 +94,12 @@ public class Main {
                 }
             } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
-            game.playerTurn(player2, dogTab, cowTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 2 turn
+            game.playerTurn(player2, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 2 turn
 
-            input.scoreRecapMessage(player1.getPlayerName(), player1.getPlayerScore());
-            input.scoreRecapMessage(player2.getPlayerName(), player2.getPlayerScore());
+            /*  input.scoreRecapMessage(player1.getPlayerName(), player1.getPlayerScore());
+                input.scoreRecapMessage(player2.getPlayerName(), player2.getPlayerScore());*/
 
-        } while((game.getNbDog()+ game.getNbCow()) != 0);
+        } while((game.getNbDog()+ game.getNbCat()) != 0);
 
         if (player1.getPlayerScore()>player2.getPlayerScore()) input.endMessage(player1.getPlayerName());
             else input.endMessage(player2.getPlayerName());

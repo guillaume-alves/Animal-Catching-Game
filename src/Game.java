@@ -1,15 +1,15 @@
 import java.util.*;
 
 public class Game {
-	int nbRows, nbColumns, nbDog, nbCow;
+	int nbRows, nbColumns, nbDog, nbCat;
 	Player[] playerTab = new Player[2];
 	ArrayList<Animal> gameTab = new ArrayList<Animal>();
 
-	public Game(int nbRows, int nbColumns, int nbDog, int nbCow) {
+	public Game(int nbRows, int nbColumns, int nbDog, int nbCat) {
 		this.nbRows = nbRows;
 		this.nbColumns = nbColumns;
 		this.nbDog = nbDog;
-		this.nbCow = nbCow;
+		this.nbCat = nbCat;
 	}
 
 	public int getGameNbRows() {
@@ -32,24 +32,24 @@ public class Game {
 
 	public void setNbDog(int nbDog) { this.nbDog = nbDog; }
 
-	public int getNbCow() {	return nbCow; }
+	public int getNbCat() {	return nbCat; }
 
-	public void setNbCow(int nbCow) { this.nbCow = nbCow; }
+	public void setNbCat(int nbCat) { this.nbCat = nbCat; }
 
 	public void createPlayerTab(Player player1, Player player2) { // Create the tab that contains the users
 		playerTab[0] = player1;
 		playerTab[1] = player2;
 	}
 
-	public void createGameTab(Dog[] dogTab, Cow[] cowTab, int nbDog, int nbCow) {
+	public void createGameTab(Dog[] dogTab, Cat[] catTab, int nbDog, int nbCat) {
 		int nb5i = nbDog; // initial dog counter
-		int nb10i = nbCow; // initial cow counter
+		int nb10i = nbCat; // initial cat counter
 		int i;
 
 		Animal emptyAnimal = new Animal(null, null, 0);
 
 		for (i = 0; i < nb5i; i++) gameTab.add(dogTab[i]);
-		for (i = 0; i < nb10i; i++) gameTab.add(cowTab[i]);
+		for (i = 0; i < nb10i; i++) gameTab.add(catTab[i]);
 		for (i = 0; i < ((nbRows * nbColumns) - (nb5i + nb10i)); i++) gameTab.add(emptyAnimal);
 
 		//Shuffle the list
@@ -59,7 +59,7 @@ public class Game {
 		System.out.print("\n" +gameTab);*/
 	}
 
-	public void playerTurn(Player player, Dog [] dogTab, Cow [] cowTab, int rowToPlay, int columnToPlay) {
+	public void playerTurn(Player player, Dog [] dogTab, Cat[] catTab, int rowToPlay, int columnToPlay) {
 		int c;
 		if (rowToPlay==0) c=0;
 			else c=(rowToPlay-1);
@@ -70,15 +70,17 @@ public class Game {
 				player.enterAnimalIntoPlayerAnimalTab(dogTab[i]);
 				gameTab.set(j, null);
 				nbDog--;
+				System.out.print("You have caught a dog !\n");
 			}
 		}
 
-		for (int i = 0; i < nbCow; i++) {
-			if (gameTab.get(j) == cowTab[i]) {
+		for (int i = 0; i < nbCat; i++) {
+			if (gameTab.get(j) == catTab[i]) {
 				player.setPlayerScore(player.getPlayerScore()+10);
-				player.enterAnimalIntoPlayerAnimalTab(cowTab[i]);
+				player.enterAnimalIntoPlayerAnimalTab(catTab[i]);
 				gameTab.set(j, null);
-				nbCow--;
+				nbCat--;
+				System.out.print("You have caught a cat !\n");
 			}
 		}
 	}

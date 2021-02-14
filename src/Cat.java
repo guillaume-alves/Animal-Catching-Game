@@ -1,8 +1,8 @@
-public class Cow extends Animal {
+public class Cat extends Animal {
 	
 	private int weight;
 	
-	public Cow (String name, String color, int points, int weight){
+	public Cat(String name, String color, int points, int weight){
 		super(name, color, points);
 		this.weight = weight;
 	}
