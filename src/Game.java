@@ -4,6 +4,7 @@ public class Game {
 	int nbRows, nbColumns, nbDog, nbCat;
 	Player[] playerTab = new Player[2];
 	ArrayList<Animal> gameTab = new ArrayList<Animal>();
+	String [][] virtualTab = new String [nbRows][nbColumns];
 
 	public Game(int nbRows, int nbColumns, int nbDog, int nbCat) {
 		this.nbRows = nbRows;
@@ -28,13 +29,21 @@ public class Game {
 		this.nbColumns = nbColumns;
 	}
 
-	public int getNbDog() {	return nbDog; }
+	public int getNbDog() {
+		return nbDog;
+	}
 
-	public void setNbDog(int nbDog) { this.nbDog = nbDog; }
+	public void setNbDog(int nbDog) {
+		this.nbDog = nbDog;
+	}
 
-	public int getNbCat() {	return nbCat; }
+	public int getNbCat() {
+		return nbCat;
+	}
 
-	public void setNbCat(int nbCat) { this.nbCat = nbCat; }
+	public void setNbCat(int nbCat) {
+		this.nbCat = nbCat;
+	}
 
 	public void createPlayerTab(Player player1, Player player2) { // Create the tab that contains the users
 		playerTab[0] = player1;
@@ -55,18 +64,18 @@ public class Game {
 		//Shuffle the list
 		Collections.shuffle(gameTab);
 
-		/* // Print for test
-		System.out.print("\n" +gameTab);*/
+		// Print for test
+		//System.out.print("\n" +gameTab);
 	}
 
-	public void playerTurn(Player player, Dog [] dogTab, Cat[] catTab, int rowToPlay, int columnToPlay) {
+	public void playerTurn(Player player, Dog[] dogTab, Cat[] catTab, int rowToPlay, int columnToPlay) {
 		int c;
-		if (rowToPlay==0) c=0;
-			else c=(rowToPlay-1);
-		int j = ((c*nbColumns) + (columnToPlay-1));
+		if (rowToPlay == 0) c = 0;
+		else c = (rowToPlay - 1);
+		int j = ((c * nbColumns) + (columnToPlay - 1));
 		for (int i = 0; i < nbDog; i++) {
 			if (gameTab.get(j) == dogTab[i]) {
-				player.setPlayerScore(player.getPlayerScore()+5);
+				player.setPlayerScore(player.getPlayerScore() + 5);
 				player.enterAnimalIntoPlayerAnimalTab(dogTab[i]);
 				gameTab.set(j, null);
 				nbDog--;
@@ -76,11 +85,36 @@ public class Game {
 
 		for (int i = 0; i < nbCat; i++) {
 			if (gameTab.get(j) == catTab[i]) {
-				player.setPlayerScore(player.getPlayerScore()+10);
+				player.setPlayerScore(player.getPlayerScore() + 10);
 				player.enterAnimalIntoPlayerAnimalTab(catTab[i]);
 				gameTab.set(j, null);
 				nbCat--;
 				System.out.print("You have caught a cat !\n");
+			}
+		}
+	}
+
+	/*public void fillVirtualTab() {
+		String [][] virtualTab = new String [nbRows][nbColumns];
+		for (int j = 0; j < nbColumns; j++) {
+			for (int i = 0; i < nbRows; i++) {
+			}
+		}
+	}*/
+
+	public void printVirtualTab() {
+		String [][] virtualTab = new String [nbRows][nbColumns];
+		System.out.print("\n");
+		for (int j = 0; j < nbColumns; j++) {
+			System.out.print("\t" + (j+1));
+		}
+		System.out.print("\n");
+		for (int i = 0; i < nbRows; i++) {
+			System.out.print((i+1)+" | ");
+			for (int j = 0; j < nbColumns; j++) {
+				virtualTab[i][j] = "-";
+				System.out.print(virtualTab[i][j] + " | ");
+				if (j==nbColumns-1) System.out.println();
 			}
 		}
 	}
