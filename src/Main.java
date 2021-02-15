@@ -77,8 +77,8 @@ public class Main {
                     }
             } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
-            game.playerTurn(player1, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay());
-            game.fillVirtualTabP1(virtualTab, 1, input.getRowToPlay(), input.getColumnToPlay());
+            game.fillVirtualTabPlayer(virtualTab, 1, input.getRowToPlay(), input.getColumnToPlay());
+            game.playerTurn(player1, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay(), virtualTab);
             game.printVirtualTab(virtualTab);// End of player 1 turn
 
             // Player 2 turn
@@ -96,8 +96,8 @@ public class Main {
                 }
             } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
-            game.playerTurn(player2, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay());
-            game.fillVirtualTabP1(virtualTab, 2, input.getRowToPlay(), input.getColumnToPlay());
+            game.fillVirtualTabPlayer(virtualTab, 2, input.getRowToPlay(), input.getColumnToPlay());
+            game.playerTurn(player2, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay(), virtualTab);
             game.printVirtualTab(virtualTab); // End of player 2 turn
 
         } while((game.getNbDog()+ game.getNbCat()) != 0);

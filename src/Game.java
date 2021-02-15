@@ -68,7 +68,7 @@ public class Game {
 		//System.out.print("\n" +gameTab);
 	}
 
-	public void playerTurn(Player player, Dog[] dogTab, Cat[] catTab, int rowToPlay, int columnToPlay) {
+	public void playerTurn(Player player, Dog[] dogTab, Cat[] catTab, int rowToPlay, int columnToPlay, String [][] virtualTab) {
 		int c;
 		if (rowToPlay == 0) c = 0;
 		else c = (rowToPlay - 1);
@@ -79,6 +79,7 @@ public class Game {
 				player.enterAnimalIntoPlayerAnimalTab(dogTab[i]);
 				gameTab.set(j, null);
 				nbDog--;
+				virtualTab[rowToPlay-1][columnToPlay-1] = "D";
 				System.out.print("You have caught a dog !\n");
 			}
 		}
@@ -89,6 +90,7 @@ public class Game {
 				player.enterAnimalIntoPlayerAnimalTab(catTab[i]);
 				gameTab.set(j, null);
 				nbCat--;
+				virtualTab[rowToPlay-1][columnToPlay-1] = "C";
 				System.out.print("You have caught a cat !\n");
 			}
 		}
@@ -102,7 +104,7 @@ public class Game {
 		}
 	}
 
-	public void fillVirtualTabP1(String [][] virtualTab, int player,int rowToPlay, int columnToPlay) {
+	public void fillVirtualTabPlayer(String [][] virtualTab, int player,int rowToPlay, int columnToPlay) {
 				if (player == 1) virtualTab[rowToPlay-1][columnToPlay-1] = "X";
 				else virtualTab[rowToPlay-1][columnToPlay-1] = "O";
 			}
