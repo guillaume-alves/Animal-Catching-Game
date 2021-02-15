@@ -4,7 +4,7 @@ public class Main {
         int points, weight;
         int x=0;
         Input input = new Input(); //declare new object from class Input to call methods
-
+ 
         // Introduction message
         input.introMessage();
 
