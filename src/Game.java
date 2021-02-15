@@ -4,13 +4,13 @@ public class Game {
 	int nbRows, nbColumns, nbDog, nbCat;
 	Player[] playerTab = new Player[2];
 	ArrayList<Animal> gameTab = new ArrayList<Animal>();
-	String [][] virtualTab = new String [nbRows][nbColumns];
 
 	public Game(int nbRows, int nbColumns, int nbDog, int nbCat) {
 		this.nbRows = nbRows;
 		this.nbColumns = nbColumns;
 		this.nbDog = nbDog;
 		this.nbCat = nbCat;
+
 	}
 
 	public int getGameNbRows() {
@@ -94,16 +94,20 @@ public class Game {
 		}
 	}
 
-	/*public void fillVirtualTab() {
-		String [][] virtualTab = new String [nbRows][nbColumns];
+	public void fillVirtualTab(String [][] virtualTab) {
 		for (int j = 0; j < nbColumns; j++) {
 			for (int i = 0; i < nbRows; i++) {
+				virtualTab[i][j] = "-";
 			}
 		}
-	}*/
+	}
 
-	public void printVirtualTab() {
-		String [][] virtualTab = new String [nbRows][nbColumns];
+	public void fillVirtualTabP1(String [][] virtualTab, int player,int rowToPlay, int columnToPlay) {
+				if (player == 1) virtualTab[rowToPlay-1][columnToPlay-1] = "X";
+				else virtualTab[rowToPlay-1][columnToPlay-1] = "O";
+			}
+
+	public void printVirtualTab(String [][] virtualTab) {
 		System.out.print("\n");
 		for (int j = 0; j < nbColumns; j++) {
 			System.out.print("\t" + (j+1));
@@ -112,7 +116,6 @@ public class Game {
 		for (int i = 0; i < nbRows; i++) {
 			System.out.print((i+1)+" | ");
 			for (int j = 0; j < nbColumns; j++) {
-				virtualTab[i][j] = "-";
 				System.out.print(virtualTab[i][j] + " | ");
 				if (j==nbColumns-1) System.out.println();
 			}

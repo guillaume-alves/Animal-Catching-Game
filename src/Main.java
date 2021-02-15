@@ -28,7 +28,9 @@ public class Main {
         // Declare new object from class Input to call methods
         Game game = new Game(input.getNbRowsInit(), input.getNbColumnsInit(), input.getNbDog(), input.getNbCat());
         game.createPlayerTab(player1, player2);
-        game.printVirtualTab();
+        String [][] virtualTab = new String [game.getGameNbRows()][game.getGameNbColumns()];
+        game.fillVirtualTab(virtualTab);
+        game.printVirtualTab(virtualTab);
 
         // Create an array of animals
         Dog [] dogTab = new Dog [input.getNbDog()];
@@ -57,7 +59,6 @@ public class Main {
 
         // Create the gameTab
         game.createGameTab(dogTab, catTab, input.getNbDog(), input.getNbCat());
-        game.printVirtualTab();
 
         // A full play cycle (player 1 and 2)
         do{
@@ -76,7 +77,9 @@ public class Main {
                     }
             } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
-            game.playerTurn(player1, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 1 turn
+            game.playerTurn(player1, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay());
+            game.fillVirtualTabP1(virtualTab, 1, input.getRowToPlay(), input.getColumnToPlay());
+            game.printVirtualTab(virtualTab);// End of player 1 turn
 
             // Player 2 turn
             input.playerTurn(player2.getPlayerName());
@@ -93,7 +96,9 @@ public class Main {
                 }
             } while (input.getColumnToPlay()>input.getNbColumnsInit() || input.getColumnToPlay()<1);
 
-            game.playerTurn(player2, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay()); // End of player 2 turn
+            game.playerTurn(player2, dogTab, catTab, input.getRowToPlay(), input.getColumnToPlay());
+            game.fillVirtualTabP1(virtualTab, 2, input.getRowToPlay(), input.getColumnToPlay());
+            game.printVirtualTab(virtualTab); // End of player 2 turn
 
         } while((game.getNbDog()+ game.getNbCat()) != 0);
 
